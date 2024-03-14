@@ -16,7 +16,7 @@
 <script lang="ts" setup>
 import {Button} from "@/components/ui/button";
 import PModal from "@/components/global/PModal.vue";
-import {ref} from "vue";
+import {ref} from 'vue';
 import {Input} from "@/components/ui/input";
 import {account} from "@/lib/appwrite.ts";
 import {useAuthStore} from "@/store/auth.store.ts";
@@ -36,7 +36,7 @@ const authStore = useAuthStore();
 const router = useRouter();
 
 async function login() {
-  await account.createEmailSession(formModal.value.login, formModal.value.password);
+  await account.createEmailPasswordSession(formModal.value.login, formModal.value.password);
   const responce = await account.get();
   if (responce) {
     authStore.set({
